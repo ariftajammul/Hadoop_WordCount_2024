@@ -1,0 +1,41 @@
+Configuration: "c=new Configuration(); "
+FileInputFormat:
+  addInputPath(j,: "input); "
+FileOutputFormat:
+  setOutputPath(j,: "output); "
+IOException,: InterruptedException
+IntWritable: "outputValue = new IntWritable(1); "
+IntWritable>: ""
+IntWritable>{: ""
+Job: 'j=new Job(c,"wordcount"); '
+Path: "output=new Path(files[1]); "
+String: "line = value.toString(); "
+String[]: 'words=line.split(" "); '
+System:
+  exit(j:
+    waitForCompletion(true)?0: "1); "
+Text: "outputKey = new Text(word.toUpperCase().trim()); "
+con:
+  write(outputKey,: "outputValue); "
+  write(word,: "new IntWritable(sum)); "
+for(IntWritable: "value : values) "
+for(String: "word: words ) "
+import: "org.apache.hadoop.util.GenericOptionsParser; "
+int: "sum = 0; "
+j:
+  setJarByClass(WordCount:
+    class);: ""
+  setMapperClass(MapForWordCount:
+    class);: ""
+  setOutputKeyClass(Text:
+    class);: ""
+  setOutputValueClass(IntWritable:
+    class);: ""
+  setReducerClass(ReduceForWordCount:
+    class);: ""
+package: com.mapreduce.wc;
+public: "void reduce(Text word, Iterable<IntWritable> values, Context con) "
+sum: += value.get();
+throws: "IOException, InterruptedException "
+"{": ""
+"}": ""
